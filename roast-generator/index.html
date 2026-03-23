@@ -292,7 +292,7 @@ document.getElementById('result').classList.add('show');
 }
 
 function shareResult(){
-const shareText=`🔥 Roast Generator: For ${document.getElementById('name').value.trim()||'Friend'}:\n"${currentRoast}"\n\nTry it: funtoolspk.com`;
+const shareText=`🔥 Roast Generator: For ${document.getElementById('name').value.trim()||'Friend'}:\n"${currentRoast}"\n\nTry it: https://fun-tools.vercel.app/roast-generator/index.html`;
 
 if(navigator.share){
 navigator.share({title:'Roast Generator',text:shareText}).catch(()=>{});
