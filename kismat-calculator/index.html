@@ -866,7 +866,7 @@
 
             function shareResult() {
                 const name = document.getElementById('fullname').value.trim();
-                const shareText = `✨ Kismat Calculator: ${name}'s destiny number is ${currentKismatNum}!\n"${currentTitle}"\n\nCheck yours: funtoolspk.com`;
+                const shareText = `✨ Kismat Calculator: ${name}'s destiny number is ${currentKismatNum}!\n"${currentTitle}"\n\nCheck yours: https://fun-tools.vercel.app/kismat-calculator/index.html`;
 
                 if (navigator.share) {
                     navigator.share({ title: 'Kismat Calculator', text: shareText }).catch(() => { });
