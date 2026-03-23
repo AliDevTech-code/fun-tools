@@ -326,7 +326,7 @@ resultBox.className='result-box '+(isHigh?'high show':'show');
 function shareResult(){
 const myName=document.getElementById('myname').value.trim();
 const crushName=document.getElementById('crushname').value.trim();
-const shareText=`❤️ Love Calculator: ${myName} + ${crushName} = ${currentPercentage}%\n${currentMessage}\n\nTry it: funtoolspk.com`;
+const shareText=`❤️ Love Calculator: ${myName} + ${crushName} = ${currentPercentage}%\n${currentMessage}\n\nTry it: https://fun-tools.vercel.app/love-calculator/index.html`;
 
 if(navigator.share){
 navigator.share({title:'Love Calculator',text:shareText}).catch(()=>{});
