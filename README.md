@@ -16,4 +16,4 @@ A sleek and interactive collection of 5 fun online tools designed for entertainm
 - **Optimization:** SEO Friendly, Mobile Responsive, Adsterra Integrated.
 
 ### 🔗 Live Demo:
-[View Project Live](https://fun-tools-international.vercel.app/)
+[View Project Live](https://fun-tools.vercel.app/)
