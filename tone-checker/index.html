@@ -930,7 +930,7 @@
             }
 
             function shareResult() {
-                const shareText = `💬 Tone Checker: Your tone is "${currentTone}"\n"${currentAdvice}"\n\nCheck your tone: funtoolspk.com`;
+                const shareText = `💬 Tone Checker: Your tone is "${currentTone}"\n"${currentAdvice}"\n\nCheck your tone: https://fun-tools.vercel.app/tone-checker/index.html`;
 
                 if (navigator.share) {
                     navigator.share({ title: 'WhatsApp Tone Checker', text: shareText }).catch(() => { });
