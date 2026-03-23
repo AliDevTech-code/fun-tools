@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Calculator - Free Online Love Compatibility Checker</title>
+<meta name="description" content="Free Love Calculator - Check your love compatibility with your crush. Enter both names and see your love percentage instantly!">
+<meta name="keywords" content="love calculator, love percentage, love compatibility, crush calculator, free love calculator, online love calculator">
+<meta name="author" content="Fun Tools International">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Love Calculator - Free Online Tool">
+<meta property="og:description" content="Check your love compatibility! Enter your name and crush name to see your love percentage.">
+<meta property="og:type" content="website">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Adsterra Ad Code -->
+<script async data-ad-id="YOUR_ADSTERRA_AD_ID" src="https://spria/cdn/v1/script/YOUR_ADSTERRA_AD_ID"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'YOUR_GA_ID');
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#e24b4a;--red-light:#fecaca;--pink:#ec4899;--green:#10b981;--bg:#f0f4f8;--surface:#ffffff;--dark:#1e293b;--light:#64748b;--border:#e2e8f0;--blue:#3b82f6}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',system-ui,sans-serif;background:var(--bg);color:var(--dark);line-height:1.6;min-height:100vh;background-image:radial-gradient(circle at 20% 80%,rgba(236,72,153,0.08) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(59,130,246,0.08) 0%,transparent 50%)}
+/* Navbar */
+.navbar{background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,0.05)}
+.navbar .container{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;max-width:900px;margin:0 auto}
+.logo{font-size:1.5rem;font-weight:800;color:var(--dark)}
+.logo span{color:var(--red)}
+.logo i{color:var(--red);margin-right:0.5rem}
+.nav-links{display:flex;gap:1rem;align-items:center}
+.nav-links a{text-decoration:none;color:var(--light);font-weight:500;font-size:0.85rem;transition:all 0.3s;padding:0.5rem 1rem;border-radius:10px}
+.nav-links a:hover{color:var(--red);background:#fef2f2}
+.nav-links a.active{color:var(--red);background:#fef2f2}
+.mobile-menu{display:none;cursor:pointer;font-size:1.5rem;color:var(--dark)}
+
+@media (max-width: 768px){
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:white;padding:1rem;flex-direction:column;gap:0.5rem;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
+.nav-links.active{display:flex}
+.mobile-menu{display:block}
+}
+/* Main Container */
+.container{max-width:900px;margin:0 auto;padding:2rem 1rem}
+/* Hero */
+.hero{text-align:center;padding:3rem 1rem 2rem;animation:fadeInDown 0.6s ease-out}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+.hero h1{font-size:2.5rem;font-weight:800;margin-bottom:0.5rem}
+.hero h1 i{color:var(--red);margin-right:0.5rem}
+.hero p{color:var(--light);font-size:1.1rem}
+/* Ad Space */
+.ad-space{min-height:90px;background:linear-gradient(135deg,#fff,#f8fafc);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:2rem;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+/* Card */
+.card{background:var(--surface);border-radius:24px;padding:2.5rem;box-shadow:0 20px 60px rgba(0,0,0,0.1);border:1px solid var(--border);animation:fadeInUp 0.6s ease-out}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.card-header{text-align:center;margin-bottom:2rem}
+.card-icon{width:80px;height:80px;margin:0 auto 1rem;background:linear-gradient(135deg,#fee2e2,#fecaca);border-radius:20px;display:flex;align-items:center;justify-content:center}
+.card-icon i{font-size:2rem;color:var(--red)}
+.card-title{font-size:1.75rem;font-weight:700;margin-bottom:0.25rem}
+.card-subtitle{color:var(--light);font-size:1rem}
+/* Form */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:0.9rem;color:var(--light);margin-bottom:0.5rem;font-weight:500}
+.form-group label i{margin-right:0.5rem;color:var(--red)}
+.form-group input{width:100%;padding:1rem 1.25rem;border:2px solid var(--border);border-radius:14px;font-size:1rem;background:var(--bg);color:var(--dark);outline:none;transition:all 0.3s;font-family:inherit}
+.form-group input:focus{border-color:var(--red);box-shadow:0 0 0 4px rgba(236,72,153,0.1)}
+.form-group input::placeholder{color:#94a3b8}
+/* Result */
+.result-box{margin-top:2rem;padding:2rem;background:linear-gradient(135deg,#fef2f2,#fff1f1);border-radius:20px;text-align:center;display:none;border:2px solid var(--red-light);animation:popIn 0.5s ease-out}
+@keyframes popIn{from{opacity:0;transform:scale(0.8)}to{opacity:1;transform:scale(1)}}
+.result-box.show{display:block}
+.result-box.high{background:linear-gradient(135deg,#d1fae5,#ecfdf5);border-color:#a7f3d0}
+.percentage{font-size:4.5rem;font-weight:800;line-height:1;transition:color 0.3s}
+.percentage.low{color:var(--red)}
+.percentage.high{color:var(--green)}
+.percentage-label{font-size:0.85rem;color:var(--light);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:2px}
+.heart-bar{width:100%;height:16px;background:var(--border);border-radius:8px;overflow:hidden;margin:1.5rem 0}
+.heart-fill{height:100%;border-radius:8px;transition:all 1s ease-out}
+.heart-fill.low{background:linear-gradient(90deg,var(--red),#f87171)}
+.heart-fill.high{background:linear-gradient(90deg,var(--green),#34d399)}
+.message{font-size:1.15rem;color:var(--dark);font-weight:500}
+/* Buttons */
+.btn{width:100%;padding:1.1rem;background:linear-gradient(135deg,var(--red),#f87171);color:white;border:none;border-radius:14px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all 0.3s;font-family:inherit;box-shadow:0 4px 15px rgba(236,72,153,0.3)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(236,72,153,0.4)}
+.btn-share{width:100%;margin-top:1rem;padding:1rem;background:var(--surface);color:var(--dark);border:2px solid var(--border);border-radius:14px;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s;font-family:inherit}
+.btn-share:hover{border-color:var(--red);color:var(--red);transform:translateY(-2px)}
+.btn-share i{margin-right:0.5rem}
+/* Instructions */
+.instructions{background:var(--surface);border-radius:24px;padding:2rem;margin-top:2rem;border:1px solid var(--border);animation:fadeInUp 0.6s ease-out 0.2s backwards}
+.instructions h2{font-size:1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.instructions h2 i{color:var(--blue)}
+.instructions ol{padding-left:1.5rem;color:var(--light)}
+.instructions li{margin-bottom:0.75rem;line-height:1.7}
+.instructions li strong{color:var(--dark)}
+/* Footer */
+.footer{background:linear-gradient(180deg,#1e293b,#0f172a);color:#94a3b8;padding:2rem 1rem;margin-top:3rem;text-align:center}
+.footer a{color:#94a3b8;text-decoration:none;transition:color 0.3s}
+.footer a:hover{color:#fff}
+.footer-links{margin:1rem 0;display:flex;flex-wrap:wrap;justify-content:center;gap:1rem}
+.copyright{font-size:0.85rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem;margin-top:1rem}
+/* Instructions Steps */
+.instructions-header{display:flex;align-items:center;justify-content:center;gap:0.75rem;margin-bottom:2rem}
+.instructions-header i{color:var(--blue);font-size:1.5rem}
+.instructions-header h2{font-size:1.5rem;margin:0}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.step-card{background:var(--bg);padding:1.5rem;border-radius:16px;text-align:center;transition:all 0.3s;position:relative;overflow:hidden}
+.step-card:hover{transform:translateY(-5px)}
+.step-number{position:absolute;top:0.5rem;left:0.5rem;width:30px;height:30px;background:var(--red);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem}
+.step-icon{width:50px;height:50px;margin:0 auto 0.75rem;background:linear-gradient(135deg,#fee2e2,#fecaca);border-radius:12px;display:flex;align-items:center;justify-content:center}
+.step-icon i{font-size:1.25rem;color:var(--red)}
+.step-title{font-weight:600;margin-bottom:0.5rem;font-size:1rem}
+.step-desc{color:var(--light);font-size:0.85rem;line-height:1.5}
+/* Mobile Responsive */
+@media (max-width: 480px){
+.navbar .container{padding:0.75rem 1rem}
+.logo{font-size:1.2rem}
+.nav-links{display:none}
+.hero{padding:2rem 1rem 1rem}
+.hero h1{font-size:1.75rem}
+.hero p{font-size:0.95rem}
+.card{padding:1.5rem;border-radius:16px}
+.card-title{font-size:1.4rem}
+.card-icon{width:60px;height:60px}
+.card-icon i{font-size:1.5rem}
+.form-grid{grid-template-columns:1fr}
+.form-group input{padding:0.875rem 1rem}
+.btn{padding:1rem;font-size:1rem}
+.percentage{font-size:3rem}
+.steps-grid{grid-template-columns:1fr}
+.ad-space{min-height:60px}
+.footer{padding:1.5rem 1rem}
+.footer-links{gap:0.75rem}
+}
+/* Custom Scrollbar for Chrome, Safari and Edge */
+::-webkit-scrollbar {
+    width: 10px; /* Scrollbar ki chorai */
+}
+
+/* Scrollbar ka background (Track) */
+::-webkit-scrollbar-track {
+    background: #f1f5f9; /* Aapka --bg color */
+}
+
+/* Uper neechay move hone wala hissa (Thumb) */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--red), var(--purple)); /* Aapke theme ka gradient */
+    border-radius: 10px;
+    border: 2px solid #f1f5f9; /* Thora gap dene ke liye */
+}
+
+/* Hover karne par color thora dark ho jaye */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--red);
+}
+
+/* Firefox ke liye (Optional) */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--red) #f1f5f9;
+}
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+<div class="container">
+<a href="../index.html" class="logo"><i class="fas fa-cogs"></i>Fun <span>Tools</span></a>
+<div class="mobile-menu" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+<div class="nav-links" id="navLinks">
+<a href="../index.html"><i class="fas fa-home"></i> Home</a>
+<a href="index.html" class="active"><i class="fas fa-heart"></i> Love</a>
+<a href="../kismat-calculator/index.html"><i class="fas fa-star"></i> Kismat</a>
+<a href="../roast-generator/index.html"><i class="fas fa-fire"></i> Roast</a>
+<a href="../shayari-generator/index.html"><i class="fas fa-pen"></i> Shayari</a>
+<a href="../tone-checker/index.html"><i class="fas fa-comment"></i> Tone</a>
+</div>
+</div>
+</nav>
+
+<div class="container">
+<!-- Hero -->
+<section class="hero">
+<h1><i class="fas fa-heart"></i> Love Calculator</h1>
+<p>Check your love compatibility by entering both names below!</p>
+</section>
+
+
+
+<!-- Main Card -->
+<main class="card">
+<div class="card-header">
+<div class="card-icon"><i class="fas fa-heart"></i></div>
+<h2 class="card-title">Love Percentage</h2>
+<p class="card-subtitle">Enter both names to see your love match</p>
+</div>
+
+<div class="form-grid">
+<div class="form-group">
+<label><i class="fas fa-user"></i>Your Name</label>
+<input type="text" id="myname" placeholder="Enter your name..." oninput="calculateLove()">
+</div>
+<div class="form-group">
+<label><i class="fas fa-heart"></i>Crush Name</label>
+<input type="text" id="crushname" placeholder="Enter crush name..." oninput="calculateLove()">
+</div>
+</div>
+
+<div class="result-box" id="result">
+<div class="percentage-label">Love Percentage</div>
+<div class="percentage low" id="percentage">0%</div>
+<div class="heart-bar"><div class="heart-fill low" id="heartFill" style="width:0%"></div></div>
+<div class="message" id="message"></div>
+<button class="btn-share" onclick="shareResult()"><i class="fas fa-share-alt"></i> Share Result</button>
+</div>
+</main>
+
+<!-- Instructions -->
+<section class="instructions">
+<div class="instructions-header">
+<i class="fas fa-book-open"></i>
+<h2>How to Use</h2>
+</div>
+<div class="steps-grid">
+<div class="step-card">
+<div class="step-number">1</div>
+<div class="step-icon"><i class="fas fa-user"></i></div>
+<div class="step-title">Enter Your Name</div>
+<div class="step-desc">Type your name in the first input field.</div>
+</div>
+<div class="step-card">
+<div class="step-number">2</div>
+<div class="step-icon"><i class="fas fa-heart"></i></div>
+<div class="step-title">Enter Crush Name</div>
+<div class="step-desc">Type your crush or partner's name in the second field.</div>
+</div>
+<div class="step-card">
+<div class="step-number">3</div>
+<div class="step-icon"><i class="fas fa-eye"></i></div>
+<div class="step-title">View Result</div>
+<div class="step-desc">The love percentage will calculate automatically.</div>
+</div>
+<div class="step-card">
+<div class="step-number">4</div>
+<div class="step-icon"><i class="fas fa-share-alt"></i></div>
+<div class="step-title">Share Result</div>
+<div class="step-desc">Share the result with your friends!</div>
+</div>
+</div>
+</section>
+
+
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-links">
+<a href="../index.html">Home</a>
+<a href="index.html">Love Calculator</a>
+<a href="../kismat-calculator/index.html">Kismat Calculator</a>
+<a href="../roast-generator/index.html">Roast Generator</a>
+</div>
+<p class="copyright">© 2024 Fun Tools International - All rights reserved</p>
+</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById('navLinks').classList.toggle('active');
+}
+
+let currentPercentage=0;
+let currentMessage='';
+
+function calculateLove(){
+const myName=document.getElementById('myname').value.trim();
+const crushName=document.getElementById('crushname').value.trim();
+const resultBox=document.getElementById('result');
+
+if(!myName || !crushName){
+resultBox.classList.remove('show');
+return;
+}
+
+// Calculate
+let seed=0;
+const combinedNames=(myName+crushName).toLowerCase();
+for(let char of combinedNames){
+seed+=char.charCodeAt(0);
+}
+const percentage=Math.abs((seed*37+myName.length*13+crushName.length*7)%41)+60;
+const safePercentage=Math.min(percentage,99);
+
+let message;
+if(safePercentage>=90){
+message="Amazing match! You two are perfect for each other! 💕";
+}else if(safePercentage>=75){
+message="Great compatibility! Stay happy together! ❤️";
+}else if(safePercentage>=60){
+message="Decent match! Give it a try! 😊";
+}else{
+message="It's challenging, but love can overcome anything! 💫";
+}
+
+currentPercentage=safePercentage;
+currentMessage=message;
+
+// Display result - green if 80%+
+const percentageEl=document.getElementById('percentage');
+const heartFill=document.getElementById('heartFill');
+const isHigh=safePercentage>80;
+
+percentageEl.textContent=safePercentage+'%';
+percentageEl.className='percentage '+(isHigh?'high':'low');
+heartFill.style.width=safePercentage+'%';
+heartFill.className='heart-fill '+(isHigh?'high':'low');
+document.getElementById('message').textContent=message;
+resultBox.classList.add('show');
+resultBox.className='result-box '+(isHigh?'high show':'show');
+}
+
+function shareResult(){
+const myName=document.getElementById('myname').value.trim();
+const crushName=document.getElementById('crushname').value.trim();
+const shareText=`❤️ Love Calculator: ${myName} + ${crushName} = ${currentPercentage}%\n${currentMessage}\n\nTry it: funtoolspk.com`;
+
+if(navigator.share){
+navigator.share({title:'Love Calculator',text:shareText}).catch(()=>{});
+}else{
+navigator.clipboard.writeText(shareText).then(()=>{
+alert('Result copied to clipboard!');
+});
+}
+}
+</script>
+</body>
+</html>

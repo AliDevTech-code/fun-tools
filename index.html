@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Tools International - Free Online Tools for Entertainment</title>
+    <meta name="description"
+        content="Fun Tools International offers 5 free online tools: Love Calculator, Kismat Calculator, Roast Generator, Shayari Generator, and WhatsApp Tone Checker. Perfect for fun and entertainment!">
+    <meta name="keywords"
+        content="love calculator, kismat calculator, roast generator, shayari generator, whatsapp tone checker, free online tools, fun tools, international tools">
+    <meta name="author" content="Fun Tools International">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Fun Tools International - Free Online Tools">
+    <meta property="og:description"
+        content="5 amazing free tools for entertainment. Try Love Calculator, Kismat Calculator, and more!">
+    <meta property="og:type" content="website">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Adsterra Ad Code -->
+    <script async src="https://data.jsdelivr.com/v1/pixel/your-adsterra-pixel-id"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --red: #e24b4a;
+            --purple: #7c3aed;
+            --orange: #f59e0b;
+            --green: #10b981;
+            --blue: #3b82f6;
+            --dark: #1e293b;
+            --light: #64748b;
+            --bg: #f0f4f8;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+            --gradient-red: linear-gradient(135deg, #e24b4a, #f87171);
+            --gradient-purple: linear-gradient(135deg, #7c3aed, #a78bfa);
+            --gradient-orange: linear-gradient(135deg, #f59e0b, #fbbf24);
+            --gradient-green: linear-gradient(135deg, #10b981, #34d399);
+            --gradient-blue: linear-gradient(135deg, #3b82f6, #60a5fa)
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Poppins', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 50%)
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05)
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark)
+        }
+
+        .logo span {
+            color: var(--red)
+        }
+
+        .logo i {
+            color: var(--red);
+            margin-right: 0.5rem
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem
+        }
+
+        .nav-links a:hover {
+            color: var(--red)
+        }
+
+        .nav-links a.active {
+            color: var(--red)
+        }
+
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--dark)
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                flex-direction: column;
+                gap: 0.5rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1)
+            }
+
+            .nav-links.active {
+                display: flex
+            }
+
+            .mobile-menu {
+                display: block
+            }
+        }
+
+        .mobile-menu {
+            display: none
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem 2rem;
+            animation: fadeInDown 0.8s ease-out
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px
+        }
+
+        .hero h1 span {
+            color: var(--red)
+        }
+
+        .hero p {
+            color: var(--light);
+            font-size: 1.2rem;
+            font-weight: 400
+        }
+
+        /* Hero Ad */
+        .hero-ad {
+            min-height: 90px;
+            background: linear-gradient(135deg, #fff, #f8fafc);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 900px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+        }
+
+        /* Tools Grid */
+        .tools-section {
+            padding: 1rem
+        }
+
+        .tools-title {
+            text-align: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem
+        }
+
+        .tools-title i {
+            color: var(--red)
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto
+        }
+
+        .tool-card {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            transform: scaleX(0);
+            transition: transform 0.4s
+        }
+
+        .tool-card.love::before {
+            background: var(--gradient-red)
+        }
+
+        .tool-card.kismat::before {
+            background: var(--gradient-purple)
+        }
+
+        .tool-card.roast::before {
+            background: var(--gradient-orange)
+        }
+
+        .tool-card.shayari::before {
+            background: var(--gradient-green)
+        }
+
+        .tool-card.tone::before {
+            background: var(--gradient-blue)
+        }
+
+        .tool-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15)
+        }
+
+        .tool-card:hover::before {
+            transform: scaleX(1)
+        }
+
+        .tool-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1rem
+        }
+
+        .tool-card.love .tool-icon {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            color: var(--red)
+        }
+
+        .tool-card.kismat .tool-icon {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            color: var(--purple)
+        }
+
+        .tool-card.roast .tool-icon {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            color: var(--orange)
+        }
+
+        .tool-card.shayari .tool-icon {
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            color: var(--green)
+        }
+
+        .tool-card.tone .tool-icon {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            color: var(--blue)
+        }
+
+        .tool-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem
+        }
+
+        .tool-desc {
+            color: var(--light);
+            font-size: 0.9rem
+        }
+
+        /* Features */
+        .features {
+            background: var(--surface);
+            margin: 3rem auto;
+            max-width: 900px;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08)
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem
+        }
+
+        .features h2 i {
+            color: var(--green)
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem
+        }
+
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 16px;
+            background: var(--bg);
+            transition: all 0.3s
+        }
+
+        .feature:hover {
+            transform: translateY(-5px)
+        }
+
+        .feature i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem
+        }
+
+        .feature:nth-child(1) i {
+            color: var(--red)
+        }
+
+        .feature:nth-child(2) i {
+            color: var(--blue)
+        }
+
+        .feature:nth-child(3) i {
+            color: var(--green)
+        }
+
+        .feature:nth-child(4) i {
+            color: var(--purple)
+        }
+
+        .feature-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem
+        }
+
+        .feature-desc {
+            color: var(--light);
+            font-size: 0.9rem
+        }
+
+        /* Middle Ad */
+        .middle-ad {
+            min-height: 90px;
+            background: linear-gradient(135deg, #fff, #f8fafc);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem auto;
+            max-width: 900px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, #1e293b, #0f172a);
+            color: #94a3b8;
+            padding: 3rem 1rem;
+            margin-top: 3rem
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center
+        }
+
+        .footer-logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1rem
+        }
+
+        .footer-logo span {
+            color: var(--red)
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem
+        }
+
+        .footer-links a:hover {
+            color: #fff
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            transition: all 0.3s
+        }
+
+        .social-links a:hover {
+            background: var(--red);
+            color: #fff;
+            transform: translateY(-3px)
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            font-size: 0.85rem
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            .navbar .container {
+                padding: 0.75rem 1rem
+            }
+
+            .logo {
+                font-size: 1.2rem
+            }
+
+            .nav-links {
+                display: none
+            }
+
+            .hero {
+                padding: 2rem 1rem 1rem
+            }
+
+            .hero h1 {
+                font-size: 1.75rem
+            }
+
+            .hero p {
+                font-size: 0.95rem
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr
+            }
+
+            .features {
+                padding: 1.5rem
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr
+            }
+
+            .feature {
+                padding: 1rem
+            }
+
+            .ad-space {
+                min-height: 60px
+            }
+
+            .footer {
+                padding: 1.5rem 1rem
+            }
+
+            .footer-links {
+                gap: 0.5rem;
+                font-size: 0.8rem
+            }
+        }
+
+        /* Responsive */
+        @media(max-width:768px) {
+            .navbar .container {
+                padding: 1rem
+            }
+
+            .nav-links {
+                display: none
+            }
+
+            .mobile-menu {
+                display: block;
+                font-size: 1.5rem;
+                color: var(--dark)
+            }
+
+            .hero h1 {
+                font-size: 2rem
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr
+            }
+
+            .features {
+                padding: 2rem 1.5rem
+            }
+        }
+        /* Custom Scrollbar for Chrome, Safari and Edge */
+::-webkit-scrollbar {
+    width: 10px; /* Scrollbar ki chorai */
+}
+
+/* Scrollbar ka background (Track) */
+::-webkit-scrollbar-track {
+    background: #f1f5f9; /* Aapka --bg color */
+}
+
+/* Uper neechay move hone wala hissa (Thumb) */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--red), var(--purple)); /* Aapke theme ka gradient */
+    border-radius: 10px;
+    border: 2px solid #f1f5f9; /* Thora gap dene ke liye */
+}
+
+/* Hover karne par color thora dark ho jaye */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--red);
+}
+
+/* Firefox ke liye (Optional) */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--red) #f1f5f9;
+}
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><i class="fas fa-cogs"></i>Fun <span>Tools</span></a>
+            <i class="fas fa-bars mobile-menu" onclick="toggleMenu()"></i>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="active"><i class="fas fa-home"></i>Home</a>
+                <a href="love-calculator/index.html"><i class="fas fa-heart"></i>Love</a>
+                <a href="kismat-calculator/index.html"><i class="fas fa-star"></i>Kismat</a>
+                <a href="roast-generator/index.html"><i class="fas fa-fire"></i>Roast</a>
+                <a href="shayari-generator/index.html"><i class="fas fa-pen"></i>Shayari</a>
+                <a href="tone-checker/index.html"><i class="fas fa-comment"></i>Tone</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Fun <span>Tools</span> International</h1>
+        <p>5 Amazing Free Online Tools for Entertainment - All in One Place!</p>
+    </section>
+
+   
+
+    <!-- Tools Section -->
+    <section class="tools-section">
+        <h2 class="tools-title"><i class="fas fa-tools"></i> All Tools</h2>
+        <div class="tools-grid">
+            <a href="love-calculator/index.html" class="tool-card love">
+                <div class="tool-icon"><i class="fas fa-heart"></i></div>
+                <div class="tool-name">Love Calculator</div>
+                <div class="tool-desc">Check love compatibility by entering two names</div>
+            </a>
+
+            <a href="kismat-calculator/index.html" class="tool-card kismat">
+                <div class="tool-icon"><i class="fas fa-star"></i></div>
+                <div class="tool-name">Kismat Calculator</div>
+                <div class="tool-desc">Check your destiny and lucky day based on birth date</div>
+            </a>
+
+            <a href="roast-generator/index.html" class="tool-card roast">
+                <div class="tool-icon"><i class="fas fa-fire"></i></div>
+                <div class="tool-name">Roast Generator</div>
+                <div class="tool-desc">Generate funny roast messages for your friends</div>
+            </a>
+
+            <a href="shayari-generator/index.html" class="tool-card shayari">
+                <div class="tool-icon"><i class="fas fa-pen-nib"></i></div>
+                <div class="tool-name">Shayari Generator</div>
+                <div class="tool-desc">Generate beautiful shayari for all moods</div>
+            </a>
+
+            <a href="tone-checker/index.html" class="tool-card tone">
+                <div class="tool-icon"><i class="fas fa-comment-dots"></i></div>
+                <div class="tool-name">WhatsApp Tone Checker</div>
+                <div class="tool-desc">Analyze your message tone before sending</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <h2><i class="fas fa-rocket"></i> Why Choose Our Tools?</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <i class="fas fa-bolt"></i>
+                <div class="feature-title">Fast & Easy</div>
+                <div class="feature-desc">Simply click and try any tool - no signup required</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-mobile-alt"></i>
+                <div class="feature-title">Mobile Friendly</div>
+                <div class="feature-desc">Works perfectly on all devices</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <div class="feature-title">100% Private</div>
+                <div class="feature-desc">No data stored - completely free and safe</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-party-horn"></i>
+                <div class="feature-title">Fun Experience</div>
+                <div class="feature-desc">Share results with friends and have fun</div>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo"><i class="fas fa-cogs"></i>Fun <span>Tools</span> International</div>
+            <p>The best free online tools for international users</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="love-calculator/index.html">Love Calculator</a>
+                <a href="kismat-calculator/index.html">Kismat Calculator</a>
+                <a href="roast-generator/index.html">Roast Generator</a>
+                <a href="shayari-generator/index.html">Shayari Generator</a>
+                <a href="tone-checker/index.html">Tone Checker</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="copyright">
+                <p>© 2024 Fun Tools International - All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    function toggleMenu(){
+        document.getElementById('navLinks').classList.toggle('active');
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kismat Calculator - Free Destiny & Lucky Day Checker</title>
+    <meta name="description"
+        content="Free Kismat Calculator - Check your destiny based on your name and date of birth. Find your lucky day and lucky color!">
+    <meta name="keywords"
+        content="kismat calculator, destiny calculator, lucky day, lucky color, free destiny checker, birth date calculator">
+    <meta name="author" content="Fun Tools International">
+    <meta name="robots" content="index, follow">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Adsterra Ad Code -->
+    <script async src="https://data.jsdelivr.com/v1/pixel/your-adsterra-pixel-id"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --purple: #7c3aed;
+            --purple-light: #ede9fe;
+            --pink: #ec4899;
+            --bg: #f0f4f8;
+            --surface: #ffffff;
+            --dark: #1e293b;
+            --light: #64748b;
+            --border: #e2e8f0;
+            --blue: #3b82f6;
+            --green: #10b981
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Poppins', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.08) 0%, transparent 50%)
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05)
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            max-width: 900px;
+            margin: 0 auto
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark)
+        }
+
+        .logo span {
+            color: var(--purple)
+        }
+
+        .logo i {
+            color: var(--purple);
+            margin-right: 0.5rem
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 10px
+        }
+
+        .nav-links a:hover {
+            color: var(--purple);
+            background: #f5f3ff
+        }
+
+        .nav-links a.active {
+            color: var(--purple);
+            background: #f5f3ff
+        }
+
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--dark)
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                flex-direction: column;
+                gap: 0.5rem;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1)
+            }
+
+            .nav-links.active {
+                display: flex
+            }
+
+            .mobile-menu {
+                display: block
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            animation: fadeInDown 0.6s ease-out
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem
+        }
+
+        .hero h1 i {
+            color: var(--purple);
+            margin-right: 0.5rem
+        }
+
+        .hero p {
+            color: var(--light);
+            font-size: 1.1rem
+        }
+
+        /* Ad Space */
+        .ad-space {
+            min-height: 90px;
+            background: linear-gradient(135deg, #fff, #f8fafc);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+        }
+
+        /* Card */
+        .card {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+            animation: fadeInUp 0.6s ease-out
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 2rem
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .card-icon i {
+            font-size: 2rem;
+            color: var(--purple)
+        }
+
+        .card-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem
+        }
+
+        .card-subtitle {
+            color: var(--light);
+            font-size: 1rem
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 1.25rem
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+            font-weight: 500
+        }
+
+        .form-group label i {
+            margin-right: 0.5rem;
+            color: var(--purple)
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            font-size: 1rem;
+            background: var(--bg);
+            color: var(--dark);
+            outline: none;
+            transition: all 0.3s;
+            font-family: inherit
+        }
+
+        .form-group input:focus {
+            border-color: var(--purple);
+            box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.1)
+        }
+
+        .form-group input::placeholder {
+            color: #94a3b8
+        }
+
+        /* Result */
+        .result-box {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 20px;
+            text-align: center;
+            display: none;
+            border: 2px solid var(--purple-light);
+            animation: popIn 0.5s ease-out
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+
+        .result-box.show {
+            display: block
+        }
+
+        .kismat-number {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: var(--purple);
+            line-height: 1
+        }
+
+        .kismat-label {
+            font-size: 0.85rem;
+            color: var(--light);
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 2px
+        }
+
+        .kismat-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem
+        }
+
+        .kismat-msg {
+            font-size: 1rem;
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7
+        }
+
+        .lucky-info {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap
+        }
+
+        .lucky-item {
+            background: var(--surface);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem
+        }
+
+        .lucky-item i {
+            color: var(--purple)
+        }
+
+        .lucky-item strong {
+            color: var(--purple)
+        }
+
+        /* Buttons */
+        .btn {
+            width: 100%;
+            padding: 1.1rem;
+            background: linear-gradient(135deg, var(--purple), #a78bfa);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3)
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4)
+        }
+
+        .btn-share {
+            width: 100%;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--surface);
+            color: var(--dark);
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit
+        }
+
+        .btn-share:hover {
+            border-color: var(--purple);
+            color: var(--purple);
+            transform: translateY(-2px)
+        }
+
+        .btn-share i {
+            margin-right: 0.5rem
+        }
+
+        /* Instructions */
+        .instructions {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid var(--border);
+            animation: fadeInUp 0.6s ease-out 0.2s backwards
+        }
+
+        .instructions h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem
+        }
+
+        .instructions h2 i {
+            color: var(--blue)
+        }
+
+        .instructions ol {
+            padding-left: 1.5rem;
+            color: var(--light)
+        }
+
+        .instructions li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7
+        }
+
+        .instructions li strong {
+            color: var(--dark)
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, #1e293b, #0f172a);
+            color: #94a3b8;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+            text-align: center
+        }
+
+        .footer a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s
+        }
+
+        .footer a:hover {
+            color: #fff
+        }
+
+        .footer-links {
+            margin: 1rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            margin-top: 1rem
+        }
+
+        /* Instructions Steps */
+        .instructions-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem
+        }
+
+        .instructions-header i {
+            color: var(--purple);
+            font-size: 1.5rem
+        }
+
+        .instructions-header h2 {
+            font-size: 1.5rem;
+            margin: 0
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem
+        }
+
+        .step-card {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px)
+        }
+
+        .step-number {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            width: 30px;
+            height: 30px;
+            background: var(--purple);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 0.75rem;
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .step-icon i {
+            font-size: 1.25rem;
+            color: var(--purple)
+        }
+
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem
+        }
+
+        .step-desc {
+            color: var(--light);
+            font-size: 0.85rem;
+            line-height: 1.5
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            .navbar .container {
+                padding: 0.75rem 1rem
+            }
+
+            .logo {
+                font-size: 1.2rem
+            }
+
+            .nav-links {
+                display: none
+            }
+
+            .hero {
+                padding: 2rem 1rem 1rem
+            }
+
+            .hero h1 {
+                font-size: 1.75rem
+            }
+
+            .hero p {
+                font-size: 0.95rem
+            }
+
+            .card {
+                padding: 1.5rem;
+                border-radius: 16px
+            }
+
+            .card-title {
+                font-size: 1.4rem
+            }
+
+            .card-icon {
+                width: 60px;
+                height: 60px
+            }
+
+            .card-icon i {
+                font-size: 1.5rem
+            }
+
+            .form-group input {
+                padding: 0.875rem 1rem
+            }
+
+            .btn {
+                padding: 1rem;
+                font-size: 1rem
+            }
+
+            .kismat-number {
+                font-size: 3rem
+            }
+
+            .lucky-info {
+                flex-direction: column;
+                align-items: center
+            }
+
+            .lucky-item {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr
+            }
+
+            .ad-space {
+                min-height: 60px
+            }
+
+            .footer {
+                padding: 1.5rem 1rem
+            }
+
+            .footer-links {
+                gap: 0.75rem
+            }
+        }
+
+        /* Responsive */
+        @media(max-width:600px) {
+            .card {
+                padding: 1.5rem
+            }
+
+            .kismat-number {
+                font-size: 3rem
+            }
+
+            .lucky-info {
+                flex-direction: column;
+                align-items: center
+            }
+        }
+
+        /* Custom Scrollbar for Chrome, Safari and Edge */
+        ::-webkit-scrollbar {
+            width: 5px;
+            /* Scrollbar ki chorai */
+        }
+
+        /* Scrollbar ka background (Track) */
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            /* Aapka --bg color */
+        }
+
+        /* Uper neechay move hone wala hissa (Thumb) */
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--red), var(--purple));
+            /* Aapke theme ka gradient */
+            border-radius: 10px;
+            border: 2px solid #f1f5f9;
+            /* Thora gap dene ke liye */
+        }
+
+        /* Hover karne par color thora dark ho jaye */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--red);
+        }
+
+        /* Firefox ke liye (Optional) */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--red) #f1f5f9;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo"><i class="fas fa-cogs"></i>Fun <span>Tools</span></a>
+            <div class="mobile-menu" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            <div class="nav-links" id="navLinks">
+                <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="../love-calculator/index.html"><i class="fas fa-heart"></i> Love</a>
+                <a href="index.html" class="active"><i class="fas fa-star"></i> Kismat</a>
+                <a href="../roast-generator/index.html"><i class="fas fa-fire"></i> Roast</a>
+                <a href="../shayari-generator/index.html"><i class="fas fa-pen"></i> Shayari</a>
+                <a href="../tone-checker/index.html"><i class="fas fa-comment"></i> Tone</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <h1><i class="fas fa-star"></i> Kismat Calculator</h1>
+            <p>Check your destiny and lucky day based on your name and birth date!</p>
+        </section>
+
+
+        <!-- Main Card -->
+        <main class="card">
+            <div class="card-header">
+                <div class="card-icon"><i class="fas fa-star"></i></div>
+                <h2 class="card-title">Check Your Destiny</h2>
+                <p class="card-subtitle">Enter your name and date of birth</p>
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-user"></i>Your Full Name</label>
+                <input type="text" id="fullname" placeholder="Enter your full name...">
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-calendar-alt"></i>Date of Birth</label>
+                <input type="date" id="dob">
+            </div>
+
+            <button class="btn" onclick="calculateKismat()"><i class="fas fa-sparkles"></i> Check Destiny</button>
+
+            <div class="result-box" id="result">
+                <div class="kismat-label">Your Kismat Number</div>
+                <div class="kismat-number" id="kismatNum">0</div>
+                <div class="kismat-title" id="kismatTitle"></div>
+                <div class="kismat-msg" id="kismatMsg"></div>
+                <div class="lucky-info">
+                    <div class="lucky-item"><i class="fas fa-moon"></i><strong>Lucky Day:</strong> <span
+                            id="luckyDay"></span></div>
+                    <div class="lucky-item"><i class="fas fa-palette"></i><strong>Lucky Color:</strong> <span
+                            id="luckyColor"></span></div>
+                </div>
+                <button class="btn-share" onclick="shareResult()"><i class="fas fa-share-alt"></i> Share Result</button>
+            </div>
+        </main>
+
+        <!-- Instructions -->
+        <section class="instructions">
+            <div class="instructions-header">
+                <i class="fas fa-book-open"></i>
+                <h2>How to Use</h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon"><i class="fas fa-user"></i></div>
+                    <div class="step-title">Enter Your Name</div>
+                    <div class="step-desc">Type your full name in the input field.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="step-title">Select Birth Date</div>
+                    <div class="step-desc">Choose your birth date from the calendar.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon"><i class="fas fa-sparkles"></i></div>
+                    <div class="step-title">Click Button</div>
+                    <div class="step-desc">Click "Check Destiny" to see your result.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon"><i class="fas fa-share-alt"></i></div>
+                    <div class="step-title">Share Result</div>
+                    <div class="step-desc">Share your destiny with friends!</div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="../love-calculator/index.html">Love Calculator</a>
+                <a href="index.html">Kismat Calculator</a>
+                <a href="../roast-generator/index.html">Roast Generator</a>
+            </div>
+            <p class="copyright">© 2024 Fun Tools International - All rights reserved</p>
+        </footer>
+
+        <script>
+            function toggleMenu() {
+                document.getElementById('navLinks').classList.toggle('active');
+            }
+
+            let currentKismatNum = 0;
+            let currentTitle = '';
+
+            const kismatData = {
+                0: { title: 'New Beginning', msg: 'You have leadership qualities. Perfect time to start new projects!', lucky: 'Sunday', color: 'Red' },
+                1: { title: 'Hard Work & Peace', msg: 'You are a hard worker. Peace will come with continued effort.', lucky: 'Monday', color: 'White' },
+                2: { title: 'Love & Dreams', msg: 'You are romantic. Your dreams will come true.', lucky: 'Friday', color: 'Pink' },
+                3: { title: 'Joy & Party', msg: 'You are fun-loving. People enjoy your company!', lucky: 'Thursday', color: 'Yellow' },
+                4: { title: 'Hard Work & Challenge', msg: 'Challenges exist but you will succeed every time. Stay brave!', lucky: 'Saturday', color: 'Blue' },
+                5: { title: 'Freedom & Travel', msg: 'You love exploring new places. Travel is in your nature.', lucky: 'Wednesday', color: 'Orange' },
+                6: { title: 'Family & Love', msg: 'Family is most important to you. Spend time with loved ones.', lucky: 'Friday', color: 'Green' },
+                7: { title: 'Knowledge & Wisdom', msg: 'You have deep thoughts. Learning is important to you.', lucky: 'Monday', color: 'Purple' },
+                8: { title: 'Success & Wealth', msg: 'Wealth comes to you naturally. Make smart decisions.', lucky: 'Saturday', color: 'Gold' },
+                9: { title: 'Humanity & Service', msg: 'Helping others brings you happiness. Consider volunteering!', lucky: 'Sunday', color: 'Sky Blue' }
+            };
+
+            function calculateKismat() {
+                const name = document.getElementById('fullname').value.trim();
+                const dob = document.getElementById('dob').value;
+                const resultBox = document.getElementById('result');
+
+                if (!name || !dob) {
+                    alert('Please enter your name and date of birth!');
+                    return;
+                }
+
+                const dobNumbers = dob.replace(/-/g, '').split('').reduce((sum, num) => sum + parseInt(num), 0);
+                let kismatNum = dobNumbers;
+                while (kismatNum > 9) {
+                    kismatNum = String(kismatNum).split('').reduce((sum, num) => sum + parseInt(num), 0);
+                }
+
+                const kismat = kismatData[kismatNum];
+                currentKismatNum = kismatNum;
+                currentTitle = kismat.title;
+
+                document.getElementById('kismatNum').textContent = kismatNum;
+                document.getElementById('kismatTitle').textContent = kismat.title;
+                document.getElementById('kismatMsg').textContent = kismat.msg;
+                document.getElementById('luckyDay').textContent = kismat.lucky;
+                document.getElementById('luckyColor').textContent = kismat.color;
+
+                resultBox.classList.add('show');
+            }
+
+            function shareResult() {
+                const name = document.getElementById('fullname').value.trim();
+                const shareText = `✨ Kismat Calculator: ${name}'s destiny number is ${currentKismatNum}!\n"${currentTitle}"\n\nCheck yours: funtoolspk.com`;
+
+                if (navigator.share) {
+                    navigator.share({ title: 'Kismat Calculator', text: shareText }).catch(() => { });
+                } else {
+                    navigator.clipboard.writeText(shareText).then(() => {
+                        alert('Result copied to clipboard!');
+                    });
+                }
+            }
+        </script>
+</body>
+
+</html>
