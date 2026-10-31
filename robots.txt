@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fun-tools-iota.vercel.app/sitemap.xml
